@@ -1,0 +1,160 @@
+.header-bg {
+  background-image: url(https://media.senseiinu.com/header-bg.png);
+  background-size: 100% 100%;
+  /* background-repeat: no-repeat; */
+
+}
+@media screen and (max-width: 768px) {
+  .header-bg {
+    background-image: url(https://media.senseiinu.com/mob-header-bg.png);
+    background-size: 100% 100%;
+    /* background-repeat: no-repeat; */
+  }
+}
+.buy-now-card {
+  background: #cc2824;
+  box-shadow: 5px 16px 52px rgba(0, 0, 0, 0.5);
+  border-radius: 48px;
+  width: 500px;
+}
+.timer-box {
+  background-color: #f61806;
+  border: 1px solid #fe3736;
+  border-radius: 27.5px;
+  padding: 10px 30px;
+  color: white;
+  font-size: 18px;
+  font-weight: 700;
+}
+.chain-btn {
+  background: #ffffff;
+  color: #4B4B4B;
+  border: 2px solid #aeaeae;
+  border-radius: 27.5px;
+  display: flex;
+  align-items: center;
+  width: 110px;
+  gap: 10px;
+  padding: 2px;
+  transition: all 0.1s ease;
+}
+
+.chain-btn:hover {
+  /* background-color: #b5b3b3; */
+  border: 2px solid #f93332;
+}
+.red-active-btn {
+  border: 2px solid #f93332;
+  /* background-color: red; */
+}
+.chain-btn .red-border {
+  border: 2px solid #f93332;
+}
+.buy-now-btn {
+  background: linear-gradient(180deg, #fe3736 0%, #e52123 100%);
+  border-radius: 27.5px;
+  font-weight: 800;
+  border: 1px solid #1a1a1a;
+  box-shadow: 0px 3px 3px 2px #1a1a1a;
+  transition: all 0.2s ease;
+}
+.buy-now-btn:hover {
+  box-shadow: 0px 3px 5px 4px #1a1a1a;
+}
+
+.custom-input input[type="number"] {
+  background: #e8e8e8;
+  border-radius: 27.5px;
+  box-shadow: 0px 3px 0px 0px rgba(0, 0, 0, 0.25) inset;
+  border: none;
+  /* -webkit-appearance: none !important; */
+  /* -moz-appearance: textfield; */
+  /* appearance: none !important; */
+  margin: 0;
+  padding-right: 10px;
+  width: 100%;
+  padding-block: 8px;
+  /* background-image: url("/icons/white.png");
+  background-repeat: no-repeat;
+  background-size: 20% 100%;
+  background-position: right center; */
+}
+/* .custom-input::-webkit-inner-spin-button,
+.custom-input::-webkit-outer-spin-button {
+  opacity: 0;
+  border: 1px solid red;
+  height: 50px;
+  width: 80px;
+} */
+@media screen and ((min-width: 425px) and (max-width: 767px)) {
+  .chain-btn {
+    flex-direction: column;
+    width: 70px;
+  }
+  .timer-box {
+    padding: 5px 20px;
+  }
+  .buy-now-card {
+    width: 400px;
+  }
+  .custom-input input[type="number"] {
+    background-size: 10% 100%;
+  }
+}
+@media screen and ((min-width: 320px) and (max-width: 424px)) {
+  .buy-now-card {
+    width: 320px;
+  }
+  .chain-btn {
+    flex-direction: column;
+    width: 70px;
+  }
+  .timer-box {
+    padding: 5px 20px;
+  }
+}
+
+/* ---------------progress css----------------------- */
+.progress-container {
+  height: 2rem;
+  width: 90%;
+  display: flex;
+  padding-block: 3px;
+  padding-inline: 5px;
+  transform: skew(-20deg);
+  margin: 2px auto;
+}
+.strip {
+  height: 100%;
+  width: 2.5%;
+  background-color: white;
+  border: 1px solid black;
+  opacity: 0.3;
+  position: relative;
+  transform: rotate(15deg);
+  margin-inline: 1px;
+  transform: skew(-12deg);
+}
+
+.active {
+  opacity: 1;
+  transform: rotate(15deg);
+  transform: skew(-12deg);
+}
+@media screen and ((min-width: 1280px) and (max-width: 1460px)) {
+  .header-bg{
+    padding-inline: 50px;
+    /* border: 10px solid green; */
+  }
+}
+@media screen and ((min-width: 1300px) and (max-width: 1560px)) {
+  .buy-now-card{
+width: 600px;
+  }
+  .timer-box {
+    padding: 5px 20px;
+  }
+  .header-bg{
+  height: 100%;
+  }
+}
