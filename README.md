@@ -37,6 +37,10 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 An easy-to-use decentralized application to mint, list, and buy NFTs built on the Ethereum blockchain.
 
+## Deployed Vercel Link
+
+https://nft-marketplace-kiranjhaspearmint-gmailcom.vercel.app/
+
 ## Features
 
 - **Mint NFTs**: Users can mint new NFTs by providing a token URI.
@@ -109,5 +113,5 @@ Pull requests are welcome! For major changes, please open an issue first to disc
 
 ## Contact
 
-[Your Name] - [Your Email] - [Your Website/Twitter/GitHub]
+Kiran Jha - kiranjha202@gmail.com - https://github.com/kirandapp/nft-marketplace-practice
 
