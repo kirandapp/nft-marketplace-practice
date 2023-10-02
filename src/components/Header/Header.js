@@ -24,6 +24,8 @@ const Header = () => {
   const [editMode, setEditMode] = useState(false);
   const [showMintedModal, setShowMintedModal] = useState(false);
   const [mintedTokenId, setMintedTokenId] = useState(null);
+  const [ownerFilter, setOwnerFilter] = useState('');
+  const [ownerNfts, setOwnerNfts] = useState([]);
 
   const MintedModal = () => (
     <div style={{
@@ -62,7 +64,10 @@ const Header = () => {
         const balance = _web3.utils.fromWei(balanceInWei, 'ether');
         const formattedMaticBalance = parseFloat(balance).toFixed(4);
         console.log("formattedMaticBalance - ",formattedMaticBalance);
+        const ownernfts = await marketplaceContractInstance.methods.viewOwnedNFTs(account).call();
+        console.log("ownernfts - ",ownernfts);
         setMaticBalance(formattedMaticBalance);
+        setOwnerNfts(ownernfts);
         return formattedMaticBalance;
     } catch (error) {
         console.error("Error fetching balance:", error);
@@ -243,6 +248,16 @@ const Header = () => {
         <Navbar activeView={activeView} setActiveView={setActiveView} />
         {activeView === 'NFTs' && (
           <div>
+            <div>
+              <label style={{ fontWeight: 'bold', marginRight: '10px' }}>Filter by Owner Address: </label>
+              <input 
+                type="text" 
+                placeholder="Enter Owner Address" 
+                value={ownerFilter} 
+                onChange={e => setOwnerFilter(e.target.value)}
+                style={{ margin: '10px 0', padding: '5px' }}
+              />
+            </div>
           <table style={{ width: "100%", border: "1px solid black" }}>
             <thead>
               <tr>
@@ -256,7 +271,8 @@ const Header = () => {
               </tr>
             </thead>
             <tbody>
-              {nftsForSale.map(nft => (
+              {/* {nftsForSale.map(nft => ( */}
+              {nftsForSale.filter(nft => !ownerFilter || nft.owner.toLowerCase().includes(ownerFilter.toLowerCase())).map(nft => (
                 <tr key={nft.tokenId} onClick={() => handleRowClick(nft)} style={{ cursor: "pointer" }}>
                   <td style={{ border: "1px solid black", padding: "8px" }}>{nft.tokenId}</td>
                   <td style={{ border: "1px solid black", padding: "8px" }}>{nft.tokenURI}</td>
@@ -287,6 +303,15 @@ const Header = () => {
             <div>
                 <p>Wallet Balance</p>
                 <p>{maticBalance}</p>
+            </div><br/>
+            <div>
+              <p>Owned NFTs Count - {Array.isArray(ownerNfts) ? ownerNfts.length : 0}</p>
+              <div>
+                <p>Owned NFTs IDs: {Array.isArray(ownerNfts) && ownerNfts.map(tokenId => tokenId.toString()).join(' , ')}</p>
+                {/* <ul>
+                  {Array.isArray(ownerNfts) && ownerNfts.map(tokenId => <li key={tokenId.toString()}>{tokenId.toString()}</li>)}
+                </ul> */}
+              </div>
             </div><br/>
           </div>
           

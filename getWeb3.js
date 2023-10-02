@@ -31,7 +31,7 @@ const getWeb3 = async (provider, chainId) => {
                   "personal_sign",
                   "eth_signTypedData",
                 ],
-                chains: ["eip155:4002"],
+                chains: ["eip155:80001"],
                 optionalChains: ["eip155:4002", "eip155:80001"],
     
                 events: ["chainChanged", "accountsChanged"],

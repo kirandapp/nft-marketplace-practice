@@ -73,7 +73,7 @@ export const networkSettings = {
             symbol: 'MATIC',
             decimals: 18,
         },
-        rpcUrls: ['https://matic-mumbai.chainstacklabs.com'],
+        rpcUrls: ['https://rpc-mumbai.maticvigil.com'],
         blockExplorerUrls: ['https://mumbai.polygonscan.com/'],
     },
     128: {

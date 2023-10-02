@@ -37,7 +37,7 @@ const metamask = initializeConnector((actions) => new MetaMask({ actions }));
         blockExplorerUrls: ["https://testnet.ftmscan.com/"],
     },
     80001: {
-        urls: ["https://matic-mumbai.chainstacklabs.com"],
+        urls: ["https://rpc-mumbai.maticvigil.com"],
         name: "Mumbai",
         nativeCurrency: {
           name: "Mumbai",

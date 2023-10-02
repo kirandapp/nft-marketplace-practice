@@ -34,13 +34,13 @@ const useAutoRefresh = () => {
 
   useEffect(() => {
     if (
-      ((chainId === 4002) &&
+      ((chainId === 80001) &&
         account) ||
       typeof chainId === "undefined"
     ) {
       // do nothing
     } else {
-      alert("App only support fantom test network");
+      alert("App only support Polygon test network");
       networkSwitcher();
     }
   }, [chainId]);
