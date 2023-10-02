@@ -97,6 +97,8 @@ export const listNft = async (connectedWallet, tokenId, price) => {
         console.log("\n _web3 - ",_web3);
         const contract = new _web3.eth.Contract(ABI, address);
         if (tokenId && price) {
+            const nftids = await contract.methods.viewAllNFTsForSale().call() ;
+            console.log("nftids - ",nftids);
             const data = await contract.methods.listNFTForSale(tokenId, price);
             const result = await _web3.eth.sendTransaction({
                 from: connectedWallet,
@@ -111,5 +113,50 @@ export const listNft = async (connectedWallet, tokenId, price) => {
         throw e;
     }
 }
+
+export const editListing = async (connectedWallet, tokenId, price) => {
+    console.log("connectedWallet, tokenId, price - ",connectedWallet, tokenId, price);
+    try {
+        let _web3 = window.web3;
+        console.log("\n _web3 - ",_web3);
+        const contract = new _web3.eth.Contract(ABI, address);
+        if (tokenId && price) {
+            const data = await contract.methods.editListing(tokenId, price);
+            const result = await _web3.eth.sendTransaction({
+                from: connectedWallet,
+                to: contract._address,
+                data: data.encodeABI(),
+            });
+            console.log("Edited Listed nft result ", result);
+        } else {
+            alert("Input tokenId and price field can't be blank.");
+        }
+    } catch(e) {
+        throw e;
+    }
+}
+
+export const cancelListing = async (connectedWallet, tokenId) => {
+    console.log("connectedWallet, tokenId - ",connectedWallet, tokenId);
+    try {
+        let _web3 = window.web3;
+        console.log("\n _web3 - ",_web3);
+        const contract = new _web3.eth.Contract(ABI, address);
+        if (tokenId) {
+            const data = await contract.methods.cancelListing(tokenId);
+            const result = await _web3.eth.sendTransaction({
+                from: connectedWallet,
+                to: contract._address,
+                data: data.encodeABI(),
+            });
+            console.log("Cancel Listed nft result ", result);
+        } else {
+            alert("Input tokenId and price field can't be blank.");
+        }
+    } catch(e) {
+        throw e;
+    }
+}
+
 
 

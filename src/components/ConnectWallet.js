@@ -75,7 +75,7 @@ const ConnectWallet = ({ setActiveModal }) => {
             alt="metamask"
             className=""
           />
-          <img
+          {/* <img
             src="/images/connect-wallet.png"
             onClick={() => {
               onConnectWithWalletConnect();
@@ -83,7 +83,7 @@ const ConnectWallet = ({ setActiveModal }) => {
             }}
             alt="connect-wallet"
             className=""
-          />
+          /> */}
         </div>
         <div>
           <button
